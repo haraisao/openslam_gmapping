@@ -7,9 +7,15 @@
 
 #include <iostream>
 
+#ifdef WIN32
+#ifndef __PRETTY_FUNCTION__
+#define __PRETTY_FUNCTION__ __FUNCSIG__ 
+#else
 #ifndef __PRETTY_FUNCTION__
 #define __FUNCDNAME__
 #endif
+#endif
+
 
 namespace GMapping {
 

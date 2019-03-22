@@ -36,8 +36,11 @@ class ScanMatcher{
 		double likelihood(double& _lmax, OrientedPoint& _mean, CovarianceMatrix& _cov, const ScanMatcherMap& map, const OrientedPoint& p, Gaussian3& odometry, const double* readings, double gain=180.);
 		inline const double* laserAngles() const { return m_laserAngles; }
 		inline unsigned int laserBeams() const { return m_laserBeams; }
-		
-		static const double nullLikelihood;
+#ifndef WIN32
+		static const  double nullLikelihood;
+#else
+		double nullLikelihood;
+#endif
 	protected:
 		//state of the matcher
 		bool m_activeAreaComputed;

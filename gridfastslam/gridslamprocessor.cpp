@@ -11,6 +11,12 @@
 //#define MAP_CONSISTENCY_CHECK
 //#define GENERATE_TRAJECTORIES
 
+#ifdef WIN32
+$ifndef __PRETTY_FUNCTION__
+#define __PRETTY_FUNCTION__   __FUNCSIG__
+#endif
+#endif
+
 namespace GMapping {
 
 const double m_distanceThresholdCheck = 20;

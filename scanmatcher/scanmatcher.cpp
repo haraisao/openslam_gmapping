@@ -11,7 +11,9 @@ namespace GMapping {
 
 using namespace std;
 
+#ifndef WIN32
 const double ScanMatcher::nullLikelihood=-.5;
+#endif
 
 ScanMatcher::ScanMatcher(): m_laserPose(0,0,0){
 	//m_laserAngles=0;
@@ -30,7 +32,9 @@ ScanMatcher::ScanMatcher(): m_laserPose(0,0,0){
 	m_linearOdometryReliability=0.;
 	m_freeCellRatio=sqrt(2.);
 	m_initialBeamsSkip=0;
-	
+#ifdef WIN32
+	nullLikelihood = -.5;
+#endif
 /*	
 	// This  are the dafault settings for a grid map of 10 cm
 	m_llsamplerange=0.1;
